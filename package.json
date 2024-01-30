@@ -1,9 +1,10 @@
 {
   "name": "verax-starter",
   "module": "index.ts",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
-    "verax-starter": "./src/cli.ts",
+    "build": "bun run tsc",
     "read-schema": "bun run src/schemas/read_schema.ts",
     "create-schema": "bun run src/schemas/create_schema.ts",
     "read-attestation": "bun run src/attestations/read_attestation.ts",
@@ -11,6 +12,9 @@
     "read-module": "bun run src/modules/read_module.ts",
     "create-portal": "bun run src/portals/create_portal.ts",
     "read-portal": "bun run src/portals/read_portal.ts"
+  },
+  "bin": {
+    "verax-starter": "./src/cli.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"
