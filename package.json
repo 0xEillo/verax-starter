@@ -1,0 +1,19 @@
+{
+  "name": "verax-starter",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "read-schema": "bun run src/schemas/read_schema.ts",
+    "create-schema": "bun run src/schemas/create_schema.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@verax-attestation-registry/verax-sdk": "^1.1.1",
+    "viem": "^2.6.1"
+  }
+}
