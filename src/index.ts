@@ -3,13 +3,16 @@ import type { Hex } from 'viem'
 
 const privateKey = process.env.PRIVATE_KEY as Hex
 
-// Default configuration for Linea Mainnet
-// export const veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_MAINNET, privateKey)
-export const veraxSdk = new VeraxSdk(
-  VeraxSdk.DEFAULT_LINEA_TESTNET,
-  undefined,
-  privateKey,
-)
+let veraxSdk
+if (privateKey) {
+  console.log('SDK read/write enabled.\n')
+  veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_TESTNET, undefined, privateKey)
+} else {
+  console.log(
+    'SDK read enabled (fill in PRIVATE_KEY in .env to enable read/write)\n',
+  )
+  veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_TESTNET)
+}
 
 // Each Verax class has its corresponding DataMapper
 // Get them from the SDK instance

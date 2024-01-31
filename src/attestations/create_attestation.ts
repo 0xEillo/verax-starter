@@ -18,13 +18,10 @@ const createAttestation = async () => {
     'Please input the schemaId for your attestion: ',
   )
   const expirationDate = await askQuestion(
-    'Please input the expiration date (leave empty if none): ',
+    'Please input the expiration date (0 if none): ',
   )
   const subject = await askQuestion(
     'Please input the subject of the attestation: ',
-  )
-  const validationPayloads = await askQuestion(
-    'Please input the validation payload for the modules (if required): ',
   )
   
   const attesationData = await askQuestion('Please input the attestation data: ')
@@ -35,7 +32,7 @@ const createAttestation = async () => {
     subject: subject as string,
     attestationData: attesationData as object[],
   }
-  const newAttestation = await portalDataMapper.attest(portalAddress as `0x${string}`, attestationPayload, validationPayloads as string[]);
+  const newAttestation = await portalDataMapper.attest(portalAddress as `0x${string}`, attestationPayload, []);
     console.log(newAttestation)
   rl.close()
 }

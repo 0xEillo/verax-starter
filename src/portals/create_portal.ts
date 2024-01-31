@@ -17,9 +17,10 @@ const createPortal = async () => {
   const portalOwnerName = await askQuestion(
     'Please input owner name of your portal: ',
   )
-  const modules = await askQuestion(
-    'Please input the modules of you portal (leave empty if none): ',
+  let modulesInput = await askQuestion(
+    'Please input the modules of your portal (leave empty if none): ',
   )
+  let modules = modulesInput ? modulesInput : []
 
   const newPortal = await portalDataMapper.deployDefaultPortal(
         modules as `0x${string}`[],

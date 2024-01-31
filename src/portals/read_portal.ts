@@ -12,7 +12,10 @@ const askQuestion = (question: string) =>
 
 const readPortal = async () => {
   const portalId = await askQuestion('Please input the portalId: ')
-  const myPortal = await portalDataMapper.findOneById(portalId as string)
+  const portalIdString = portalId as string
+  const myPortal = await portalDataMapper.findOneById(
+    portalIdString.toLowerCase(),
+  )
   console.log(myPortal)
   rl.close()
 }

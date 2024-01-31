@@ -11,7 +11,10 @@ const askQuestion = (question: string) =>
 
 const readModule = async () => {
   const moduleId = await askQuestion('Please input the moduleId: ')
-  const myModule = await moduleDataMapper.findOneById(moduleId as string)
+  const moduleIdString = moduleId as string
+  const myModule = await moduleDataMapper.findOneById(
+    moduleIdString.toLowerCase(),
+  )
   console.log(myModule)
   rl.close()
 }

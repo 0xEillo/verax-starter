@@ -12,8 +12,7 @@ bun install
 
 The project includes several scripts that you can run. Here are some examples:
 
-First: go to ./src/index.ts and chose your chain configuration.
-Second: add your privateKey to a .env file
+Before running the scripts go to ./src/index.ts and chose your chain configuration, then add your privateKey to a .env file.
 
 - To build the project, run:
 
